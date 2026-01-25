@@ -15,7 +15,7 @@ def add_new_task():
 	tasks.append({"title ": title, "done ": False, "due_date": due_date})
 
 def mark_task_done():
-	wich_task = int(input("podaj numer zadania: "))
+	wich_task = int(input("podaj numer zadania: ")) #
 	tasks[wich_task]["done "] = True
 
 
