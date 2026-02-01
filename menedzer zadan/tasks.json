@@ -1,0 +1,12 @@
+[
+    {
+        "title ": "Nauczyc sie Pythona ",
+        "done ": false,
+        "due_date ": " 2026 -01 -20 "
+    },
+    {
+        "title ": "przezyc",
+        "done ": false,
+        "due_date": null
+    }
+]

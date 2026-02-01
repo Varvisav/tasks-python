@@ -1,35 +1,43 @@
-tasks = [
-{
-"id": 1,
-"title ": "Nauczyc sie Pythona ",
-"done ": False ,
-"due_date ": " 2026 -01 -20 "
-}
-]
 
-def add_new_task():
-	title = input("Podaj nazwe zadania: ")
-	due_date = input("Podaj termin (opcjonalnie): ")
-	
-	
-	tasks.append({"title ": title, "done ": False, "due_date": due_date})
-
-def mark_task_done():
-	wich_task = int(input("podaj numer zadania: ")) #
-	tasks[wich_task]["done "] = True
+#from dane import tasks
+from funkcje import show_tasks, add_new_task, remove_task, mark_task_done, save_tasks, load_tasks, tasks
+import json
+from datetime import date
+import os
 
 
-def show_tasks():
-	#return("\nYour tasks:\n")
-	print(tasks) 
-	
 
-show_tasks()
-add_new_task()
-show_tasks()
-mark = input("Napisz 'yeah' by oznaczyć wybrane zadanie jako wykonane, jeśli nie chcesz nic oznaczać, napisz 'nie'")
-if mark == "yeah":
-	mark_task_done()
-elif mark == "nie":
-	print("idiota")
-show_tasks()
+if __name__ == "__main__":
+	while True:
+		print("chose what do you want to do:")
+		print("[0] show the task list")
+		print("[1] add a new task")
+		print("[2] remove a task")
+		print("[3] mark task done")
+		print("[4] zapisz do pliku tasks.json")
+		print("[5] wczytaj zadania z pliku tasks.json")
+
+
+		command: int = int(input("command number: "))
+		if command == 0:
+			show_tasks()
+		elif command == 1:
+			tittle = input("Podaj nazwe zadania: ")
+			due_date = input("(opcjonalnie) Podaj termin (RRRR-MM-DD): ")
+			if due_date == "":
+				add_new_task(tittle) 
+			#elif due_date == date:
+				#add_new_task(tittle, due_date) 
+			else:
+				add_new_task(tittle, due_date)
+			
+		elif command == 2:
+			remove_task(input("podaj numer zadania: "))
+		elif command == 3:
+			mark_task_done(input("podaj numer zadania: "))
+		elif command == 4:
+			save_tasks()
+		elif command == 5:
+			load_tasks()
+		else:
+			print("There is no such command")
